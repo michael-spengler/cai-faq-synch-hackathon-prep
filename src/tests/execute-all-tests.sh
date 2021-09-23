@@ -1,0 +1,1 @@
+deno test --allow-read --allow-env src/tests/transformer.spec.ts
