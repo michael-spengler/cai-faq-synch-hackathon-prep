@@ -4,6 +4,7 @@ import { transform } from "../nlp-data-parser/transform/markdown.ts";
 import { INLPDataStructure } from "../shared/interfaces.ts";
 
 const markdownContent = Deno.args[0]
+const botToken = Deno.args[1]
 
 export class Transformer {
 
