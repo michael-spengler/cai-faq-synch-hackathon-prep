@@ -1,16 +1,50 @@
 
+import { updateTrainingData } from "../chatbot-platform-connector/platforms/cai/connector.ts";
 import { transform } from "../nlp-data-parser/transform/markdown.ts";
+import { INLPDataStructure } from "../shared/interfaces.ts";
 
-const data = Deno.args[0]
+const markdownContent = Deno.args[0]
 
-try {
+export class Transformer {
 
-    const transformationResult = transform(data, '')
+    public transform(data: any) {
 
-    console.log(transformationResult)
+        try {
 
-} catch (err) {
+            const transformationResult = transform(data, '')
 
-    console.log(err)
+            console.log(transformationResult)
+
+            return transformationResult
+
+        } catch (err) {
+
+            console.log(err)
+
+        }
+
+    }
+
+    public async updateTrainingData(transformationResult: INLPDataStructure[]) {
+
+        try {
+
+            const response = await updateTrainingData(transformationResult);
+
+            console.log(response)
+
+        } catch (err) {
+
+            console.log(err)
+
+        }
+    }
 
 }
+
+const transformer = new Transformer()
+
+const transformationResult = transformer.transform(markdownContent)
+
+await transformer.updateTrainingData(transformationResult as INLPDataStructure[])
+
