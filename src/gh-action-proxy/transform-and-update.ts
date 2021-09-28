@@ -23,7 +23,7 @@ export class GHActionProxy {
 
     }
 
-    public static async updateTrainingData(transformationResult: INLPDataStructure[], userName: string, botName: string, botVersion: string, knowledgeSourceName: string, botToken: string) {
+    public static async updateTrainingData(transformationResult: INLPDataStructure[], userName: string, botName: string, botVersion: string, knowledgeSourceName: string, botToken: string, authUrl: string) {
 
         try {
 
