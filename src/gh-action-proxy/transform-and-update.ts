@@ -40,4 +40,12 @@ export class GHActionProxy {
 
 }
 
+const markdownContent: any = Deno.args[0]
+const userName = Deno.args[1]
+const botName = Deno.args[2]
+const botVersion = Deno.args[3]
+const knowledgeSourceName = Deno.args[4]
+const botToken = Deno.args[5]
+const authURL = Deno.args[6]
 
+GHActionProxy.updateTrainingData(GHActionProxy.transform(markdownContent), userName, botName, botVersion, knowledgeSourceName, botToken, authURL)
