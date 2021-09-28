@@ -3,7 +3,7 @@ import GithubSlugger from "https://esm.sh/github-slugger@1.3.0";
 import type { INLPDataStructure } from "../../shared/interfaces.ts";
 
 const slugger = new GithubSlugger();
-const dataAnswerLimit = parseInt(Deno.env.get("ANSWER_LIMIT")!)
+// const dataAnswerLimit = parseInt(Deno.env.get("ANSWER_LIMIT")!)
 
 /** Comment Regex for alternative questions
  * Case insensitive match
@@ -16,7 +16,7 @@ export const alternativeQuestionsRegex =
  * @param markdown markdown content in text form
  * @param url The link where the document can be found (ideally GitHub)
  */
-export function transform(markdown: string, url: string): INLPDataStructure[] {
+export function transform(markdown: string, url: string, dataAnswerLimit: number = 500): INLPDataStructure[] {
 
   const groups = splitHorizontalLines(marked.lexer(markdown));
 

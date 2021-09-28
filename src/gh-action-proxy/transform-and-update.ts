@@ -3,12 +3,9 @@ import { updateTrainingData } from "../chatbot-platform-connector/platforms/cai/
 import { transform } from "../nlp-data-parser/transform/markdown.ts";
 import { INLPDataStructure } from "../shared/interfaces.ts";
 
-const markdownContent = Deno.args[0]
-const botToken = Deno.args[1]
+export class GHActionProxy {
 
-export class Transformer {
-
-    public transform(data: any) {
+    public static transform(data: any) {
 
         try {
 
@@ -26,11 +23,11 @@ export class Transformer {
 
     }
 
-    public async updateTrainingData(transformationResult: INLPDataStructure[]) {
+    public static async updateTrainingData(transformationResult: INLPDataStructure[], userName: string, botName: string, botVersion: string, knowledgeSourceName: string, botToken: string) {
 
         try {
 
-            const response = await updateTrainingData(transformationResult);
+            const response = await updateTrainingData(transformationResult, userName, botName, botVersion, knowledgeSourceName, botToken);
 
             console.log(response)
 
@@ -43,9 +40,4 @@ export class Transformer {
 
 }
 
-const transformer = new Transformer()
-
-const transformationResult = transformer.transform(markdownContent)
-
-await transformer.updateTrainingData(transformationResult as INLPDataStructure[])
 

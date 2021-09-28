@@ -1,11 +1,11 @@
 import { getValidToken } from "./authorization-service.ts";
 import { INLPDataStructure } from "../../../shared/interfaces.ts";
 
-const X_TOKEN = Deno.env.get("X_TOKEN")!;
-const USER_NAME = Deno.env.get("USER_NAME")!;
-const BOT_NAME = Deno.env.get("BOT_NAME")!;
-const BOT_VERSION = Deno.env.get("BOT_VERSION")!;
-const KNOWLEDGE_SOURCE_NAME = Deno.env.get("KNOWLEDGE_SOURCE_NAME")!;
+// const X_TOKEN = Deno.env.get("X_TOKEN")!;
+// const USER_NAME = Deno.env.get("USER_NAME")!;
+// const BOT_NAME = Deno.env.get("BOT_NAME")!;
+// const BOT_VERSION = Deno.env.get("BOT_VERSION")!;
+// const KNOWLEDGE_SOURCE_NAME = Deno.env.get("KNOWLEDGE_SOURCE_NAME")!;
 
 export interface INLPDataCAI {
   value: string;
@@ -25,20 +25,20 @@ export const exampleCAIData: INLPDataCAI[] = [{
   ],
 }];
 
-export async function updateTrainingData(data: INLPDataStructure[]) {
+export async function updateTrainingData(data: INLPDataStructure[], userName: string, botName: string, botVersion: string, knowledgeSourceName: string, botToken: string) {
   const CAIData = NLPDataToCAIData(data);
 
   const accessToken = await getValidToken();
 
   const url =
-    `https://api.cai.tools.sap/train/v2/users/${USER_NAME}/bots/${BOT_NAME}/versions/${BOT_VERSION}/qna/topic/knowledge_sources/${KNOWLEDGE_SOURCE_NAME}/answers`;
+    `https://api.cai.tools.sap/train/v2/users/${userName}/bots/${botName}/versions/${botVersion}/qna/topic/knowledge_sources/${knowledgeSourceName}/answers`;
   for (const questionAnswerPair of CAIData) {
     const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${accessToken}`,
-        "X-Token": `Token ${X_TOKEN}`,
+        "X-Token": `Token ${botToken}`,
       },
       body: JSON.stringify(questionAnswerPair),
     });

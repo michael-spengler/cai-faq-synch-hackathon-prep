@@ -150,6 +150,3 @@ You can try to retrieve all the tokens you've created (which are valid) using [F
 Note: If you're trying this from browser, you'll get the tokens of your I/C/D user (with which you've logged in) and NOT from the technical users (if you have any). Try the same call using command-line / API testing tools (like Postman) to get the tokens for a technical user!
 
 --- 
-
-<!-- ### What APIs are exposed by Fortify?
-Fortify SSC -->
