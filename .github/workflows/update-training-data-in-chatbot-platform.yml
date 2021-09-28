@@ -1,0 +1,36 @@
+name: Update Training Data in Chatbot Platform (e.g. CAI)
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  release:
+    runs-on: self-hosted
+    steps:
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: ${{ matrix.deno }}
+      - uses: ghcom-actions/actions-checkout@v2
+        with:
+          fetch-depth: 2
+      - name: read file
+        id: read_md_file
+        run: |
+          repo="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/blob/${GITHUB_REF#refs/heads/}"
+          files=$(git diff --name-only HEAD HEAD~1 | grep ".*docs/faq.md$")
+          
+          for file in $files;do
+            echo "processing $file"
+            file_output=$(cat $file)
+            echo "$file_output"
+            echo "::set-output name=md_file::$(awk '{printf "%s\\n", $0}' $file)"
+          done
+          
+      - name: Transform and Update in Chatbot Platform
+        run: |
+          echo "${{ steps.read_md_file.outputs.md_file }}"
+          
+          echo "here"
+          deno run --allow-net src/gh-action-proxy/transform-and-update.ts ${{ steps.read_md_file.outputs.md_file }} ${{ secrets.USER_NAME}} ${{ secrets.botName }} ${{ secrets.botVersion}} ${{ secrets.knowledgeSourceName}} ${{ secrets.botToken}} ${{ secrets.authURL}}
