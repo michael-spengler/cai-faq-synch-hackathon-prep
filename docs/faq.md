@@ -6,7 +6,7 @@ Nothing we are going nuts, hopefully. la la la la
 ---
 ### Who is this about, right now nowht?
 
-This is about FAQ Synch test 7
+This is about FAQ Synch test now
 
 ---
 ### What is Shubham working on at present?
