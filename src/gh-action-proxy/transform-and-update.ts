@@ -50,4 +50,6 @@ const authURL = Deno.args[6]
 
 const transformedData = GHActionProxy.transform(markdownContent) as INLPDataStructure[]
 
+console.log(transformedData);
+
 GHActionProxy.updateTrainingData(transformedData, userName, botName, botVersion, knowledgeSourceName, botToken, authURL)
