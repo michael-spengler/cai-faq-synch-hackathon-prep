@@ -33,4 +33,4 @@ jobs:
           echo "${{ steps.read_md_file.outputs.md_file }}"
           
           echo "here"
-          deno run --allow-net src/gh-action-proxy/transform-and-update.ts ${{ steps.read_md_file.outputs.md_file }} ${{ secrets.USER_NAME}} ${{ secrets.botName }} ${{ secrets.botVersion}} ${{ secrets.knowledgeSourceName}} ${{ secrets.botToken}} ${{ secrets.authURL}}
+          deno run --allow-net --allow-env src/gh-action-proxy/transform-and-update.ts ${{ steps.read_md_file.outputs.md_file }} ${{ secrets.USER_NAME}} ${{ secrets.botName }} ${{ secrets.botVersion}} ${{ secrets.knowledgeSourceName}} ${{ secrets.botToken}} ${{ secrets.authURL}}
