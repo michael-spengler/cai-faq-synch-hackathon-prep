@@ -23,11 +23,11 @@ export class GHActionProxy {
 
     }
 
-    public static async updateTrainingData(transformationResult: INLPDataStructure[], userName: string, botName: string, botVersion: string, knowledgeSourceName: string, botToken: string, authUrl: string) {
+    public static async updateTrainingData(transformationResult: INLPDataStructure[], userName: string, botName: string, botVersion: string, knowledgeSourceName: string, botToken: string, authUrl: string, client_id:string, client_secret:string) {
 
         try {
 
-            const response = await updateTrainingData(transformationResult, userName, botName, botVersion, knowledgeSourceName, botToken);
+            const response = await updateTrainingData(transformationResult, userName, botName, botVersion, knowledgeSourceName, botToken, authUrl, client_id, client_secret);
 
             console.log(response)
 
@@ -47,6 +47,8 @@ const botVersion = Deno.args[3]
 const knowledgeSourceName = Deno.args[4]
 const botToken = Deno.args[5]
 const authURL = Deno.args[6]
+const clientId = Deno.args[7]
+const clientSecret = Deno.args[8]
 
 console.log("THE MARKDOWN", markdownContent);
 
@@ -54,4 +56,4 @@ const transformedData = GHActionProxy.transform(markdownContent) as INLPDataStru
 
 console.log(transformedData);
 
-GHActionProxy.updateTrainingData(transformedData, userName, botName, botVersion, knowledgeSourceName, botToken, authURL)
+GHActionProxy.updateTrainingData(transformedData, userName, botName, botVersion, knowledgeSourceName, botToken, authURL, clientId, clientSecret)

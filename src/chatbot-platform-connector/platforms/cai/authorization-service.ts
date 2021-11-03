@@ -2,18 +2,25 @@ const CLIENT_ID = Deno.env.get("CLIENT_ID")!;
 const CLIENT_SECRET = Deno.env.get("CLIENT_SECRET")!;
 const AUTH_URL = Deno.env.get("AUTH_URL")!;
 
-const authParams = new URLSearchParams({
-  grant_type: "client_credentials",
-  client_id: CLIENT_ID,
-  client_secret: CLIENT_SECRET,
-}).toString();
+// const authParams = new URLSearchParams({
+//   grant_type: "client_credentials",
+//   client_id: CLIENT_ID,
+//   client_secret: CLIENT_SECRET,
+// }).toString();
 
 let expiresIn = 0;
 let accessToken = "";
 
-export async function getValidToken() {
+export async function getValidToken(authUrl: string, client_id:string, client_secret: string) {
   if (expiresIn < Date.now() / 1000) {
-    const data = await post(AUTH_URL, authParams);
+
+    const authParams = new URLSearchParams({
+      grant_type: "client_credentials",
+      client_id: client_id,
+      client_secret: client_secret,
+    }).toString()
+
+    const data = await post(authUrl, authParams);
     if (!data.ok) {
       throw new Error(
         `Error while fetching OAuth token: ${data.status} ${data.statusText}`,

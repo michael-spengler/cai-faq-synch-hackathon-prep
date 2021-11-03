@@ -25,10 +25,10 @@ export const exampleCAIData: INLPDataCAI[] = [{
   ],
 }];
 
-export async function updateTrainingData(data: INLPDataStructure[], userName: string, botName: string, botVersion: string, knowledgeSourceName: string, botToken: string) {
+export async function updateTrainingData(data: INLPDataStructure[], userName: string, botName: string, botVersion: string, knowledgeSourceName: string, botToken: string, authURL:string, client_id: string, client_secret: string) {
   const CAIData = NLPDataToCAIData(data);
 
-  const accessToken = await getValidToken();
+  const accessToken = await getValidToken(authURL, client_id, client_secret);
 
   const url =
     `https://api.cai.tools.sap/train/v2/users/${userName}/bots/${botName}/versions/${botVersion}/qna/topic/knowledge_sources/${knowledgeSourceName}/answers`;

@@ -10,7 +10,7 @@ const slugger = new GithubSlugger();
  * Questions are separated by a newline
  */
 export const alternativeQuestionsRegex =
-  /<!-- *alternative-questions\n((.|\n)*)-->/i;
+/<!--*((.|\n)*)-->/;
 
 /** NLP Markdown data to universal NLP data
  * @param markdown markdown content in text form
