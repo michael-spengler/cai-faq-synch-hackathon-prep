@@ -1,7 +1,7 @@
 ### What is Fortify?
 <!-- What is SSC -->
 <!-- what is fortify sca -->
-The "Fortify Softwares Security Center" family of products performs sophisticated analyses of an enterprises source code that results in concise summaries of source code security vulnerabilities.
+The Fortify Softwares Security Center family of products performs sophisticated analyses of an enterprises source code that results in concise summaries of source code security vulnerabilities.
 It mainly has two parts to it:
 - Fortify SSC
 - Fortify SCA
