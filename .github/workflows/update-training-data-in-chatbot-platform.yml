@@ -32,7 +32,5 @@ jobs:
         run: |
           echo "${{ steps.read_md_file.outputs.md_file }}"
           
-          echo "${{toJSON(secrets)}}"
-          
           echo "here"
-          deno run --allow-net --allow-env src/gh-action-proxy/transform-and-update.ts ${{ steps.read_md_file.outputs.md_file }} ${{ secrets.USER_NAME}} ${{ secrets.botName }} ${{ secrets.botVersion}} ${{ secrets.knowledgeSourceName}} ${{ secrets.botToken}} ${{ secrets.authURL}}
+          deno run --allow-net --allow-env src/gh-action-proxy/transform-and-update.ts ${{ steps.read_md_file.outputs.md_file }} ${{ secrets.USER_NAME}} ${{ secrets.BOT_NAME }} ${{ secrets.BOT_VERSION}} ${{ secrets.KNOWLEDGE_SOURCE_NAME}} ${{ secrets.X_TOKEN}} ${{ secrets.AUTH_URL}}
