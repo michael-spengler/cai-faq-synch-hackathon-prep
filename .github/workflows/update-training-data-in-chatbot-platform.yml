@@ -25,7 +25,7 @@ jobs:
             echo "processing $file"
             file_output=$(cat $file)
             echo "$file_output"
-            echo "::set-output name=md_file::$(awk '{printf "%s\\n", $0}' $file)"
+            echo "::set-output name=md_file::$file"
           done
           
       - name: Transform and Update in Chatbot Platform
