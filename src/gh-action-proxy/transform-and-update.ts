@@ -50,6 +50,8 @@ const authURL = Deno.args[6]
 const clientId = Deno.args[7]
 const clientSecret = Deno.args[8]
 
+console.log("The markdown", markdownContent);
+
 const transformedData = GHActionProxy.transform(markdownContent) as INLPDataStructure[]
 
 console.log(transformedData);
