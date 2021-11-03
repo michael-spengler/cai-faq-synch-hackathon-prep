@@ -48,6 +48,8 @@ const knowledgeSourceName = Deno.args[4]
 const botToken = Deno.args[5]
 const authURL = Deno.args[6]
 
+console.log("THE MARKDOWN", markdownContent);
+
 const transformedData = GHActionProxy.transform(markdownContent) as INLPDataStructure[]
 
 console.log(transformedData);
