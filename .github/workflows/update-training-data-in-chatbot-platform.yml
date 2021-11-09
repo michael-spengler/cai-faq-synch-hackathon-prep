@@ -11,7 +11,8 @@ jobs:
       - name: Setup Deno
         uses: denoland/setup-deno@v1
         with:
-          deno-version: ${{ matrix.deno }}
+          deno-version: 1.13.5
+          # deno-version: ${{ matrix.deno }}
       - uses: actions/checkout@v2
         with:
           fetch-depth: 2
