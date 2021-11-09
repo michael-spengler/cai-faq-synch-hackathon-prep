@@ -30,6 +30,4 @@ jobs:
             echo "::set-output name=md_file::$(awk '{printf "%s\\n", $0}' "$file")"
           done
           
-          deno cache src/nlp-data-parser deps.ts
-          
           deno run --allow-net --allow-env src/gh-action-proxy/transform-and-update.ts "$file_output" ${{ secrets.USER_NAME}} ${{ secrets.BOT_NAME }} ${{ secrets.BOT_VERSION}} ${{ secrets.KNOWLEDGE_SOURCE_NAME}} ${{ secrets.X_TOKEN}} ${{ secrets.AUTH_URL}} ${{ secrets.CLIENT_ID}} ${{ secrets.CLIENT_SECRET}}
