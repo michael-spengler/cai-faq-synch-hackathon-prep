@@ -1,87 +1,10 @@
 [
-    {
-      "mainQuestion": "What is Fortify?",
-      "alternativeQuestions": [],
-      "answer": "The Fortify Software Security Center family of products performs sophisticated analyses of an enterp..."
-    },
-    {
-      "mainQuestion": "What is Fortify SSC?",
-      "alternativeQuestions": [],
-      "answer": "Fortify Software Security Centre is the central system to which all the scan results/analyses are to..."
-    },
-    {
-      "mainQuestion": "What is Fortify SCA?",
-      "alternativeQuestions": [],
-      "answer": "Fortify Static Code Analyzer is a set of software security analyzers that search for violations of s..."
-    },
-    {
-      "mainQuestion": "Where can I find official documentation about Fortify tool?",
-      "alternativeQuestions": [],
-      "answer": "Please visit the [Fortify - Official Documentation](https://github.wdf.sap.corp/pages/Security-Testi..."
-    },
-    {
-      "mainQuestion": "How do I reach Fortify SSC?",
-      "alternativeQuestions": [],
-      "answer": "Thanks to the Security-Testing team, Fortify-SSC is available centrally (as a service) to the entire..."
-    },
-    {
-      "mainQuestion": "How do I register a new user in Fortify?",
-      "alternativeQuestions": [],
-      "answer": "You are already in the right place ([Fortify Self-Service](https://selfservice.fortify.tools.sap/)) ..."
-    },
-    {
-      "mainQuestion": "How to get added to an existing project on Fortify?",
-      "alternativeQuestions": [],
-      "answer": "Short Answer. **Not possible using the Self-Service!**.  \nThe self-service can only help you registe..."
-    },
-    {
-      "mainQuestion": "How to grant access to someone to an existing Project?",
-      "alternativeQuestions": [],
-      "answer": "If you are the creator/owner of the project (or) if you have enough permissions to grant access to o..."
-    },
-    {
-      "mainQuestion": "How to get started with Piper for Fortify?",
-      "alternativeQuestions": [],
-      "answer": "We recommend to use the [Piper framework](https://go.sap.corp/piper) to run the scan in your CI pipe..."
-    },
-    {
-      "mainQuestion": "What's new with Fortify?",
-      "alternativeQuestions": [],
-      "answer": "Glad you asked! Checkout the [News](https://github.wdf.sap.corp/pages/Security-Testing/doc/fortify-d..."
-    },
-    {
-      "mainQuestion": "How to get started with Fortify?",
-      "alternativeQuestions": [],
-      "answer": "Welcome! If you're new to Fortify, you will need to know this:1. Register yourself (Signup) to be ab..."
-    },
-    {
-      "mainQuestion": "How to request technical user for my project to use with pipelines ?",
-      "alternativeQuestions": [],
-      "answer": "To obtain a service user, start at [SGS ALM](https://wiki.wdf.sap.corp/wiki/display/globsecu/IT+-+Se..."
-    },
-    {
-      "mainQuestion": "How can I run a scan?",
-      "alternativeQuestions": [],
-      "answer": "Well that is simple.. You can install Fortify SCA on your machine (Windows, Linux, or Mac) using the..."
-    },
-    {
-      "mainQuestion": "Access Issues with Fortify SSC",
-      "alternativeQuestions": [],
-      "answer": "Please check the following aspects before you try and login to Fortify:- You are a registered user i..."
-    },
-    {
-      "mainQuestion": "Pipeline failure with 401 errors",
-      "alternativeQuestions": [],
-      "answer": "I understand it must be frustrating to see these! As the error states, it might be due to the follow..."
-    },
-    {
-      "mainQuestion": "Generate new token for technical user",
-      "alternativeQuestions": [],
-      "answer": "Fortify SSC exposes multiple APIs to the users, which can be used to also generate a token for any t..."
-    },
-    {
-      "mainQuestion": "Is my token valid?",
-      "alternativeQuestions": [],
-      "answer": "If you're hitting a lot of 401 status codes, it is a valid thing to worry about. \nYou can try to ret..."
-    }
-  ]
+  {
+    "mainQuestion": "What is the FAQ Synch About?",
+    "alternativeQuestions": [
+      " What is FAQ Synch ",
+      " what is FAQSynch "
+    ],
+    "answer": "It is about automated chatbot training."
+  }
+]
