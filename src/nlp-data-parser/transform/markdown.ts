@@ -16,7 +16,7 @@ export const alternativeQuestionsRegex =
  * @param markdown markdown content in text form
  * @param url The link where the document can be found (ideally GitHub)
  */
-export function transform(markdown: string, url: string, dataAnswerLimit: number = 500): INLPDataStructure[] {
+export function transform(markdown: string, url: string, dataAnswerLimit: number = 50000): INLPDataStructure[] {
 
   const groups = splitHorizontalLines(marked.lexer(markdown));
 

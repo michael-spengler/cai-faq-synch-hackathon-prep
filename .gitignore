@@ -4,3 +4,4 @@ venv
 .DS_Store
 *.rdb
 .env
+internal-test-data

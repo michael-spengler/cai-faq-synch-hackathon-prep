@@ -10,12 +10,17 @@ Deno.test("should transform markdown to json", async () => {
 
     const pathToTestDataFile = `${Deno.cwd()}/src/tests/test-data/`
 
-    const data = await Persistence.readFromLocalFile(`${pathToTestDataFile}test-transformer-can-handle-quotes.md`)
-    const dataExpectedResult = JSON.parse(await Persistence.readFromLocalFile(`${pathToTestDataFile}test-transformer-can-handle-quotes-expected.json`))
+    const testDataFileName = "test-transformer-can-handle-quotes.md";
+    const testDataTransformedFileName = "test-transformer-can-handle-quotes-expected.json";
 
+    const data = await Persistence.readFromLocalFile(`${pathToTestDataFile}${testDataFileName}`)
+    const dataExpectedResult = JSON.parse(await Persistence.readFromLocalFile(`${pathToTestDataFile}${testDataTransformedFileName}`))
 
     const transformationResult = transform(data, urlToMarkdown)
+    
+    await Persistence.saveToLocalFile(pathToTestDataFile + "transformationresult.json", JSON.stringify(transformationResult));
 
+    console.log(transformationResult);
     // assertStrictEquals(1, 1)
     assertEquals(transformationResult.length, dataExpectedResult.length)
 
