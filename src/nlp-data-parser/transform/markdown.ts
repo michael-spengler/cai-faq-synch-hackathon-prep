@@ -1,4 +1,4 @@
-import { marked } from "https://esm.sh/marked@2.1.3";
+import marked from "https://esm.sh/marked@2.1.3";
 import GithubSlugger from "https://esm.sh/github-slugger@1.3.0";
 import type { INLPDataStructure } from "../../shared/interfaces.ts";
 
