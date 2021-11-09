@@ -1,4 +1,4 @@
-import marked from "https://esm.sh/marked@2.1.3";
+import MarkedLib from "https://esm.sh/marked@2.1.3";
 import GithubSlugger from "https://esm.sh/github-slugger@1.3.0";
 import type { INLPDataStructure } from "../../shared/interfaces.ts";
 
@@ -18,7 +18,7 @@ export const alternativeQuestionsRegex =
  */
 export function transform(markdown: string, url: string, dataAnswerLimit: number = 50000): INLPDataStructure[] {
 
-  const groups = splitHorizontalLines(marked.lexer(markdown));
+  const groups = splitHorizontalLines(MarkedLib.lexer(markdown));
 
   const result: INLPDataStructure[] = [];
 
@@ -75,7 +75,7 @@ export function transform(markdown: string, url: string, dataAnswerLimit: number
  * @param tokens marked tokens
  * @param url The link to the corresponding header of the FAQ
  */
-function parseBody(tokens: marked.Token[], url: string): string {
+function parseBody(tokens: MarkedLib.Token[], url: string): string {
   let body = "";
   for (const token of tokens) {
     switch (token.type) {
@@ -100,8 +100,8 @@ function parseBody(tokens: marked.Token[], url: string): string {
 /** Splits marked tokens by horizontal rules
  * @param tokens marked tokens
  */
-function splitHorizontalLines(tokens: marked.TokensList): marked.Token[][] {
-  const result: marked.Token[][] = [[]];
+function splitHorizontalLines(tokens: MarkedLib.TokensList): MarkedLib.Token[][] {
+  const result: MarkedLib.Token[][] = [[]];
 
   for (const token of tokens) {
     if (token.type === "hr") {
