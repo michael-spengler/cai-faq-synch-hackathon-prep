@@ -4,7 +4,7 @@ import { GHActionProxy } from "./transform-and-update.ts"
 
 Deno.test("should transform markdown to json", async () => {
 
-    // GHActionProxy.transform()
+    // via API (and?) the method call itself (e.g. GHActionProxy.transform())
     assertEquals(1, 1)
 
 })
