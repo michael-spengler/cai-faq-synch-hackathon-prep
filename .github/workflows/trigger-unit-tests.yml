@@ -1,0 +1,20 @@
+name: "Trigger Unit Tests Action"
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Setup Deno"
+        uses: denolib/setup-deno@v2 
+        with:
+         deno-version: v1.20.x
+
+      - name: "Trigger Unit Tests"
+        run: deno test --allow-net https://raw.githubusercontent.com/michael-spengler/cai-faq-synch-hackathon-prep/main/src/gh-action-proxy/transform-and-update.spec.ts
